@@ -1,0 +1,79 @@
+---
+title: "Canada"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Canada}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## How to use this package
+
+
+#### map_cum
+
+This function would show the cumulative COVID-19 cases on the Canada map. From the day with the  The deeper the color, the smaller the case. 
+You can input any date before now.The format should be yyyy-dmm-dd. Double quotes are required in typing both date and option.
+
+```{r, eval = FALSE}
+library(CanadaCOVID19)
+
+map_cum("2020-08-30")
+
+```
+
+#### map_new
+
+This function would show the new COVID-19 cases on the Canada map. The deeper the color, the smaller the case. 
+You can input any date before now.The format should be yyyy-dmm-dd. Double quotes are required in typing both date and option.
+
+```{r, eval = FALSE}
+map_new("2020-08-30")
+```
+
+
+#### plot_Ca
+
+This function can plot the new cases/new deaths/cumulative cases of Canada by day. You can input a date you are interested in and choose a variable from three options : "new", "deaths" and "cumulative" to plot. The result will be a line chart and you can see the trend of the increase of the variable you choose from the day that first case of COVID-19 occured in Canada to the day you input.
+You can input any date before now.The format should be yyyy-dmm-dd. Double quotes are required in typing both date and option.
+
+```{r, eval = FALSE}
+plot_Ca("2020-9-17","New")
+plot_Ca("2020-7-18","Deaths")
+plot_Ca("2020-12-18","Cumulative")
+```
+
+#### plot_Prov
+
+This function can plot the new cases/new deaths/cumulative cases of each province in Canada by day. You can input a date and a name of province in Canada you are interested in and choose a variable from three options : "new", "deaths" and "cumulative" to plot. The result will be a line chart and you can see the trend of the increase of the variable you choose from the day that first case of COVID-19 occured in that province to the day you input.
+You can input any date before now.The format should be yyyy-dmm-dd. Double quotes are required in typing both date and option.
+
+```{r, eval = FALSE}
+plot_Prov("2020-9-17","Alberta","New")
+plot_Prov("2020-7-18","","Deaths")
+plot_Prov("2020-12-18","","Cumulative")
+```
+
+
+####TodayNew
+This function can return a table of new cases, new deaths, new recovered and new tested at any date and province you input.
+You can input any date before now.The format should be yyyy-dmm-dd. Double quotes are required in typing both date and option.
+
+```{r, eval = FALSE}
+DayNew("Alberta","2020-07-19")
+```
+
+#### Inta_nccp
+
+This function can launch a shiny app which is a interactive line plot of new case in each province in Canada by day. You can choose a date in the slider and a province in the menu below the slider of date. Then the plot will show you the new cases by day in that province from the first recorded day to the day you choose.
+
+```{r, eval = FALSE}
+Inta_ncpp()
+```
